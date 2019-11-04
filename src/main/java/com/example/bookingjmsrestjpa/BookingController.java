@@ -16,9 +16,9 @@ public class BookingController {
 	
 	@RequestMapping(value = "/send", method = RequestMethod.POST) 
 		public void send(@RequestBody HotelBookingSender hotelBooking) {
-		    System.out.println("Sending a transaction.");
+		    System.out.println("Sending Hotel booking data...");
 		    // Post message to the message queue named "OrderTransactionQueue"
-		    jmsTemplate.convertAndSend("mailbox", hotelBooking);		  
+		    jmsTemplate.convertAndSend("mailbox", hotelBooking);
 	}
 
 }

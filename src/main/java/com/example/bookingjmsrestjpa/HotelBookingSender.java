@@ -1,6 +1,16 @@
 package com.example.bookingjmsrestjpa;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+
+@Entity
 public class HotelBookingSender {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE) // identity when auto_increment is set
+    private long id;
 	
 	private String hotelName;
     private double pricePerNight;
@@ -41,6 +51,10 @@ public class HotelBookingSender {
     
     public double getTotalPrice() {
         return pricePerNight * nbOfNights;
+    }
+    
+    public long getId() {
+        return id;
     }
     
     @Override
